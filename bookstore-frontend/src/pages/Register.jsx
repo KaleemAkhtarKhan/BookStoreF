@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 
 const Register = () => {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,9 +28,17 @@ const Register = () => {
 
       if (response.ok) {
         setMessage('Registration successful!');
+       if (response.ok) {
+            setMessage('Registration successful! Redirecting to login...');
+            setTimeout(() => {
+             navigate('/login');
+  }, 2000); // Wait 1.5 seconds before redirect
+}
+
         setFullName('');
         setEmail('');
         setPassword('');
+    
       } else {
         const errorData = await response.json();
         setMessage(`Registration failed: ${errorData.message || 'Unknown error'}`);

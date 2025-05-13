@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track if the user is logged in
+  const navigate = useNavigate(); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const credentials = {
-      email,
-      password,
-    };
+    const credentials = { email, password };
 
     try {
       const response = await fetch('http://localhost:8080/api/auth/login', {
@@ -25,14 +23,15 @@ const Login = () => {
 
       if (response.ok) {
         const data = await response.json();
-        // Save token to local storage
-        localStorage.setItem('authToken', data.token); // Save token for future requests
+        localStorage.setItem('authToken', data.token);
         localStorage.setItem('isLoggedIn', 'true');
-        // setIsLoggedIn(true);
         setMessage('Login successful!');
+       setTimeout(() => {
+             navigate('/'); // Redirect to home page after login
+  }, 1500); // Wait 1.5 seconds before redirect
       } else {
         const errorData = await response.json();
-        setMessage(`Login failed ${errorData.message || 'Unknown error'}`);
+        setMessage(`Login failed: ${errorData.message || 'Unknown error'}`);
       }
     } catch (error) {
       setMessage('Error connecting to server.');

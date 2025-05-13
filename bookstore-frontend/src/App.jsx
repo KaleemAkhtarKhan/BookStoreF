@@ -9,7 +9,8 @@ import Book from './pages/Book';
 import SellBook from './pages/SellBook';
 import BuyBook from './pages/BuyBook';
 import Cart from './pages/Cart';
-import ProtectedRoute from './components/ProtectedRoute';
+import ProtectedRoute from './components/ProtectedRoute'; 
+
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/book" element={<Book />} />
+            {/* <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} /> */}
               <Route path="/sell" element={<ProtectedRoute><SellBook /></ProtectedRoute>} />
         <Route path="/buy" element={<ProtectedRoute><BuyBook /></ProtectedRoute>} />
         <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
