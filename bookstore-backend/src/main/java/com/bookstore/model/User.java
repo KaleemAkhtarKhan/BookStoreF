@@ -13,6 +13,7 @@ public class User {
     private Long id;
 
     private String name;
+    private String fullName; // Added field for full name
     private String email;
     private String password;
 
@@ -56,5 +57,12 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+     public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 }

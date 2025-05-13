@@ -1,3 +1,5 @@
+
+
 import React, { useEffect, useState } from 'react';
 
 const BuyBook = () => {
@@ -18,6 +20,7 @@ const BuyBook = () => {
 
         if (response.ok) {
           const data = await response.json();
+          console.log('Books:', data); // 👈 Check imageUrl values
           setBooks(data);
         } else if (response.status === 403) {
           setMessage('Access denied. Please log in.');

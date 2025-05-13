@@ -23,7 +23,8 @@ const Login = () => {
 
       if (response.ok) {
         const data = await response.json();
-        localStorage.setItem('token', data.token);
+        localStorage.setItem('authToken', data.token);
+        localStorage.setItem('userId', data.userId); // ✅ store user ID
         localStorage.setItem('isLoggedIn', 'true');
         setMessage('Login successful!');
        setTimeout(() => {

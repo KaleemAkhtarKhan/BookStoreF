@@ -3,26 +3,26 @@ import React, { useState, useEffect } from 'react';
 const Home = () => {
   const [books, setBooks] = useState([]);
 
-  useEffect(() => {
-    const fetchBooks = async () => {
-      try {
-        const response = await fetch('http://localhost:8080/api/books/');
-        if (response.ok) {
-          const booksData = await response.json();
-          setBooks(booksData);
-        } else {
-          // const errorText = await response.text();
-        // console.error('Failed to fetch book:', errorText);
-        // setMessage(`Failed to list the book: ${response.status} - ${errorText}`);
-          console.error('Failed to fetch books');
-        }
-      } catch (error) {
-        console.error('Error fetching books:', error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchBooks = async () => {
+  //     try {
+  //       const response = await fetch('http://localhost:8080/api/books/');
+  //       if (response.ok) {
+  //         const booksData = await response.json();
+  //         setBooks(booksData);
+  //       } else {
+  //         // const errorText = await response.text();
+  //       // console.error('Failed to fetch book:', errorText);
+  //       // setMessage(`Failed to list the book: ${response.status} - ${errorText}`);
+  //         console.error('Failed to fetch books');
+  //       }
+  //     } catch (error) {
+  //       console.error('Error fetching books:', error);
+  //     }
+  //   };
 
-    fetchBooks();
-  }, []);
+  //   fetchBooks();
+  // }, []);
 
   return (
     <div className="text-center text-white">
