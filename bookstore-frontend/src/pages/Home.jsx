@@ -6,11 +6,14 @@ const Home = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/books');
+        const response = await fetch('http://localhost:8080/api/books/');
         if (response.ok) {
           const booksData = await response.json();
           setBooks(booksData);
         } else {
+          // const errorText = await response.text();
+        // console.error('Failed to fetch book:', errorText);
+        // setMessage(`Failed to list the book: ${response.status} - ${errorText}`);
           console.error('Failed to fetch books');
         }
       } catch (error) {

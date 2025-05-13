@@ -6,6 +6,9 @@ const SellBook = () => {
     author: '',
     price: '',
     description: '',
+    imageUrl: '',
+    category: '',
+    stock: '',
   });
 
   const [message, setMessage] = useState('');
@@ -16,29 +19,43 @@ const SellBook = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Sending data to backend
+
+    // ✅ Retrieve the JWT token from localStorage
+    const token = localStorage.getItem('authToken');
+    if (!token) {
+      setMessage('You must be logged in to sell a book.');
+      return;
+    }
+
     try {
-      const response = await fetch('http://localhost:8080/api/books', {
+      const response = await fetch('http://localhost:8080/api/books/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`, // ✅ Pass token correctly
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          price: parseFloat(formData.price),
+          stock: parseInt(formData.stock),
+        }),
       });
 
       if (response.ok) {
-        const data = await response.json();
         setMessage('Book listed for sale successfully!');
-        // Optionally reset the form after success
         setFormData({
           title: '',
           author: '',
           price: '',
           description: '',
+          imageUrl: '',
+          category: '',
+          stock: '',
         });
       } else {
-        setMessage('Failed to list the book. Please try again.');
+        const errorText = await response.text();
+        console.error('Failed to add book:', errorText);
+        setMessage(`Failed to list the book: ${response.status} - ${errorText}`);
       }
     } catch (error) {
       console.error('Error listing book:', error);
@@ -52,46 +69,31 @@ const SellBook = () => {
       <form onSubmit={handleSubmit} className="shadow p-4 rounded bg-light">
         <div className="mb-3">
           <label className="form-label">Book Title</label>
-          <input
-            type="text"
-            className="form-control"
-            name="title"
-            onChange={handleChange}
-            value={formData.title}
-            required
-          />
+          <input type="text" className="form-control" name="title" onChange={handleChange} value={formData.title} required />
         </div>
         <div className="mb-3">
           <label className="form-label">Author</label>
-          <input
-            type="text"
-            className="form-control"
-            name="author"
-            onChange={handleChange}
-            value={formData.author}
-            required
-          />
+          <input type="text" className="form-control" name="author" onChange={handleChange} value={formData.author} required />
         </div>
         <div className="mb-3">
           <label className="form-label">Price ($)</label>
-          <input
-            type="number"
-            className="form-control"
-            name="price"
-            onChange={handleChange}
-            value={formData.price}
-            required
-          />
+          <input type="number" step="0.01" className="form-control" name="price" onChange={handleChange} value={formData.price} required />
         </div>
         <div className="mb-3">
           <label className="form-label">Description</label>
-          <textarea
-            className="form-control"
-            name="description"
-            onChange={handleChange}
-            value={formData.description}
-            required
-          />
+          <textarea className="form-control" name="description" onChange={handleChange} value={formData.description} required />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Image URL</label>
+          <input type="text" className="form-control" name="imageUrl" onChange={handleChange} value={formData.imageUrl} required />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Category</label>
+          <input type="text" className="form-control" name="category" onChange={handleChange} value={formData.category} required />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Stock</label>
+          <input type="number" className="form-control" name="stock" onChange={handleChange} value={formData.stock} required />
         </div>
         <button type="submit" className="btn btn-primary w-100">Submit</button>
       </form>

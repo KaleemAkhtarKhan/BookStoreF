@@ -18,10 +18,11 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest request) {
-         if (authService.authenticate(request)) {
- 
-            return ResponseEntity.ok(Map.of("token", "fake-jwt-token"));
-        } else {
+        try {
+            String token = authService.login(request);
+            return ResponseEntity.ok(Map.of("token", token));
+        } catch (Exception e) {
+             e.printStackTrace(); // <-- See actual error in backend
             return ResponseEntity.status(401).body(Map.of("message", "Invalid email or password"));
         }
     }
