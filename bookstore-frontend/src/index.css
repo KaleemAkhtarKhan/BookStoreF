@@ -1,5 +1,6 @@
 body {
-  background-image: url('assets/home.jpg');
+  /* background-image: url('assets/book.jpg'); */
+  background-color: #4B1D1D;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

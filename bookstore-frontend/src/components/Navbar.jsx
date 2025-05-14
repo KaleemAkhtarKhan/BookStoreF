@@ -23,7 +23,8 @@ const Navbar = () => {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-      <Link className="navbar-brand" to="/">Bookstore</Link>
+      <Link className="navbar-brand" to="/"><span className="text-success fw-bold">📚Book</span>
+              <span className="text-white">Nerds</span></Link>
 
       <button
         className="navbar-toggler"
