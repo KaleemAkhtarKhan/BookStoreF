@@ -5,7 +5,6 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Book from './pages/Book';
 import SellBook from './pages/SellBook';
 import BuyBook from './pages/BuyBook.jsx';
 import Cart from './pages/Cart';
@@ -22,8 +21,6 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/book" element={<Book />} />
-            {/* <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} /> */}
               <Route path="/sell" element={<ProtectedRoute><SellBook /></ProtectedRoute>} />
         <Route path="/buy" element={<ProtectedRoute><BuyBook /></ProtectedRoute>} />
         <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />

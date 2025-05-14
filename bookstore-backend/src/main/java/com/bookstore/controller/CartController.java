@@ -25,7 +25,7 @@ public class CartController {
     // Get all items in the user's cart
     @GetMapping("/items")
     public ResponseEntity<?> getCartItems(@RequestParam Long userId) {
-        return ResponseEntity.ok(cartService.getCartItems(userId));
+    return ResponseEntity.ok(cartService.getCartItems(userId));
     }
 
     // Remove a book from the cart
