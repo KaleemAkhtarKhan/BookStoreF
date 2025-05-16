@@ -60,7 +60,7 @@ const Home = () => {
               />
               <h5 className="mt-3">Kaleem Akhtar Khan</h5>
               <p className="text-muted">Software Engineer</p>
-              <p className="text-muted">Founder & CEO</p>
+              <p className="text-muted">Founder & CEO </p>
               <a
                 href="https://www.linkedin.com/in/kaleem-akhtar-khan-3075092b6/" 
                 target="_blank"
