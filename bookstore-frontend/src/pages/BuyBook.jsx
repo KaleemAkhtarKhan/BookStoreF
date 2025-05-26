@@ -80,7 +80,7 @@ const BuyBook = () => {
               <div className="card-body d-flex flex-column">
                 <h5 className="card-title">{book.title}</h5>
                 <p className="card-text text-muted small mb-1">{book.author}</p>
-                <p className="card-text fw-bold mb-2">${book.price}</p>
+                <p className="card-text fw-bold mb-2">₹{book.price}</p>
                 <button
                   className="btn btn-sm btn-success mt-auto"
                   onClick={() => handleAddToCart(book.id)}

@@ -89,7 +89,7 @@ const SellBook = () => {
         </div>
 
         <div className="mb-3">
-          <label className="form-label">Price ($)</label>
+          <label className="form-label">Price (₹)</label>
           <input type="number" step="0.01" className="form-control" name="price" value={formData.price} onChange={handleChange} required />
         </div>
 

@@ -111,7 +111,7 @@ const Cart = () => {
               </div>
             </div>
             <div className="d-flex flex-column align-items-end">
-              <span className="fw-bold">${(item.price * item.quantity).toFixed(2)}</span>
+              <span className="fw-bold">₹{(item.price * item.quantity).toFixed(2)}</span>
               <button
                 className="btn btn-sm btn-danger mt-2"
                 onClick={() => removeItem(item.bookId)}
