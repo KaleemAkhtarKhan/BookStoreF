@@ -1,6 +1,14 @@
 # 📚 BookNerds – Online Rehashed Bookstore
 
-![Login and Footer UI Preview](./frontend/public/login-footer-screenshot.png)
+![Login and footer UI Preview](./bookstore-frontend/public/login.png)
+
+![Register UI Preview](./bookstore-frontend/public/register.png)
+
+![Sell Book UI Preview](./bookstore-frontend/public/sellbook.png)
+
+![Buy Book UI Preview](./bookstore-frontend/public/buybook.png)
+
+![Home and Navbar UI Preview](./bookstore-frontend/public/home.png)
 
 ## 🌐 Live Demo
 > _Coming soon
