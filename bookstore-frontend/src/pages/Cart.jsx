@@ -95,7 +95,7 @@ const Cart = () => {
               />
               <div>
                 <h6 className="mb-1">{item.title}</h6>
-                <div>Price: ${item.price?.toFixed(2)}</div>
+                <div>Price: ₹{item.price?.toFixed(2)}</div>
                 <div className="d-flex align-items-center mt-1">
                   <button
                     className="btn btn-sm btn-outline-secondary me-2"
@@ -123,7 +123,7 @@ const Cart = () => {
         ))}
       </ul>
       <div className="text-end">
-        <h5>Total: ${total.toFixed(2)}</h5>
+        <h5>Total:₹ {total.toFixed(2)}</h5>
         <button className="btn btn-primary mt-2">Proceed to Checkout</button>
       </div>
     </div>
