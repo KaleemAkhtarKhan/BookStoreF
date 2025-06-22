@@ -14,12 +14,11 @@ const Footer = () => {
               <span className="text-white">Nerds</span>
             </h4>
             <p className="text-secondary">
-             At BookNerds, we're not just building a platform — we're building a movement. Driven by a passion for education and innovation, we believe in the power of books to transform lives. Let’s connect 📲 and collaborate to shape the future of learning together.
+             At BookNerds, we're not just building a platform — we're building a movement. Driven by a passion for education and innovation, we believe in the power of books to transform lives. Let’s connect 📲 and collaborate to shape the future of learning together.  👉  <a href="https://linktr.ee/kaleemakhtarkhan" className="text-light fs-5"><CgWebsite /></a>
             </p>
             {/* Social Icons */}
             <div className="d-flex justify-content-center justify-content-md-start mt-3 gap-3">
               <a href="https://github.com/KaleemAkhtarKhan" className="text-light fs-5"><FaGithub /></a>
-              <a href="https://linktr.ee/kaleemakhtarkhan" className="text-light fs-5"><CgWebsite /></a>
               <a href="#" className="text-light fs-5"><FaInstagram /></a>
               <a href="https://www.linkedin.com/in/kaleem-akhtar-khan-3075092b6/" className="text-light fs-5"><FaLinkedinIn /></a>
             </div>
@@ -30,7 +29,7 @@ const Footer = () => {
             <h5 className="mb-3">Contact Us</h5>
             <ul className="list-unstyled text-secondary">
               <li><strong>Email:</strong> kaleemakhtarkhan1@gmail.com</li>
-              <li><strong>Phone:</strong> +923693348</li>
+              <li><strong>Phone:</strong> +91 9236933348</li>
               <li><strong>Location:</strong> Lucknow, INDIA</li>
             </ul>
           </div>
